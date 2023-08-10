@@ -11,15 +11,7 @@ namespace console\controllers;
 
 use common\helpers\ArrayHelper;
 use common\helpers\OpenaiHelper;
-use common\models\Frequencies;
-use common\models\Websites;
-use common\models\WebsitesGoogleIndexHistory;
-use common\models\WebsitesPingsHistory;
-use common\models\WebsitesWhoisHistory;
-use common\models\WebsitesYandexIndexHistory;
-use common\models\YachtsDatabase;
 use DeepL\TranslateTextOptions;
-use Iodev\Whois\Factory;
 use yii\console\Controller;
 use yii\db\Exception;
 use yii\db\Query;
@@ -38,7 +30,7 @@ class TranslationsController extends Controller
                     $language = 'ru';
                 }
                 $strings = self::getStrings($file);
-                $authKey = "123cc14f-c481-3624-461c-aa2538667d92"; // Replace with your key
+                $authKey = ""; // Replace with your key
                 $translator = new \DeepL\Translator($authKey);
                 foreach ($strings as $key => $value) {
                     if (empty($value)) {
