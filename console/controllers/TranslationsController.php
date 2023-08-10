@@ -21,6 +21,15 @@ class TranslationsController extends Controller
 {
     public function actionTranslateStrings()
     {
+        /** ENTER API KEY WHERE */
+
+        $authKey = ""; // Replace with your key
+
+        /** ENTER API KEY WHERE */
+
+        $translator = new \DeepL\Translator($authKey);
+
+
         ini_set('memory_limit', '-1');
         $target_languages = ['ru-RU'];
         foreach ($target_languages as $language) {
@@ -30,8 +39,6 @@ class TranslationsController extends Controller
                     $language = 'ru';
                 }
                 $strings = self::getStrings($file);
-                $authKey = ""; // Replace with your key
-                $translator = new \DeepL\Translator($authKey);
                 foreach ($strings as $key => $value) {
                     if (empty($value)) {
                         echo  $key . PHP_EOL;
