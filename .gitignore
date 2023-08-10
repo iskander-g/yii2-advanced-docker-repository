@@ -2,11 +2,6 @@
 /yii
 /yii_test
 /yii_test.bat
-console/controllers/images/
-console/controllers/ahrefs/
-console/controllers/ahrefs-traffic/
-console/controllers/images.zip
-frontend/web/screenshots/
 
 # phpstorm project files
 .idea
