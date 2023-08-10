@@ -31,13 +31,14 @@ class TranslationsController extends Controller
 
 
         ini_set('memory_limit', '-1');
-        $target_languages = ['ru-RU'];
+        $target_languages = ArrayHelper::getFileNamesFromDir(__DIR__ . "/../../common/i18n");
         foreach ($target_languages as $language) {
-            $files = ArrayHelper::getFileNamesFromDir(__DIR__ . "/../../common/i18n/$language/", false);
+            if($language == 'en-US') {
+                continue;
+            }
+            $files = ArrayHelper::getFileNamesFromDir(__DIR__ . "/../../common/i18n/$language", false);
             foreach ($files as $file) {
-                if($language == 'ru-RU') {
-                    $language = 'ru';
-                }
+                $language = substr($language, 0, 2);
                 $strings = self::getStrings($file);
                 foreach ($strings as $key => $value) {
                     if (empty($value)) {
