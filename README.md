@@ -42,3 +42,14 @@ Localize messages:
 ```
 php yii translations/translate-strings
 ```
+
+
+## Scheduling tasks
+
+Run schedule command
+
+```
+php yii schedule/run --scheduleFile=/app/console/config/schedule.php
+```
+
+Add this command to Cron
